@@ -19,11 +19,11 @@ namespace WindowsFormsApp3
 
         public GraphicCardSet(Panel panel, int count):this(panel)
         {
-            foreach (var figure in Enum.GetValues(typeof(CardFigure)))
+            foreach (var character in Enum.GetValues(typeof(CardCharacter)))
             {
-                foreach (var suit in Enum.GetValues(typeof(CardSuit)))
+                foreach (var landscape in Enum.GetValues(typeof(CardLandscape)))
                 {
-                    Cards.Add(new GraphicCard((CardFigure)figure, (CardSuit)suit));
+                    Cards.Add(new GraphicCard((CardCharacter)character, (CardLandscape)landscape));
                 }
             }
             if (count < Count)

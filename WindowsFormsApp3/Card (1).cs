@@ -4,14 +4,14 @@ using System.Text;
 
 namespace WindowsFormsApp3
 {
-    public enum CardFigure
+    public enum CardCharacter
     {
         low,
         medium,
         high
     }
 
-    public enum CardSuit
+    public enum CardLandscape
     {
         Naboo,
         Jakku,
@@ -20,13 +20,13 @@ namespace WindowsFormsApp3
     }
     class Card
     {
-        public CardFigure Figure { get; set; }
-        public CardSuit Suit { get; set; }
+        public CardCharacter Character { get; set; }
+        public CardLandscape Landscape { get; set; }
 
-        public Card(CardFigure figure, CardSuit suit)
+        public Card(CardCharacter character, CardLandscape landscape)
         {
-            Figure = figure;
-            Suit = suit;
+            Character = character;
+            Landscape = landscape; 
         }
 
         public virtual void Show()
@@ -36,7 +36,7 @@ namespace WindowsFormsApp3
 
         public override string ToString()
         {
-            return String.Format("{0} {1}", Figure, Suit);
+            return String.Format("{0} {1}", Character, Landscape);
         }
     }
 }

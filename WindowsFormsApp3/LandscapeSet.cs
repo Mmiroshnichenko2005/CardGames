@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WindowsFormsApp3
 {
-
-    class CardSet
+    class LandscapeSet
     {
-        public List<Card> Cards { get; set; }
+        public List<LandscapeCard> Cards { get; set; }
 
         protected int Count
         {
             get { return Cards.Count; }
         }
 
-        public CardSet(List<Card> cards)
+        public LandscapeSet(List<LandscapeCard> cards)
         {
             this.Cards = cards;
         }
 
-        public CardSet() : this(new List<Card>())
+        public LandscapeSet() : this(new List<LandscapeCard>())
         { }
 
-        public CardSet(int count) : this()
+        public LandscapeSet(int count) : this()
         {
-            foreach (var character in Enum.GetValues(typeof(CardCharacter)))
+            foreach (var landscape in Enum.GetValues(typeof(LandscapeCard)))
             {
-                foreach (var landscape in Enum.GetValues(typeof(CardLandscape)))
-                {
-                    Cards.Add(new Card((CardCharacter)character, (CardLandscape)landscape));
-                }
+                Cards.Add(new LandscapeCard((CardLandscape)landscape));
             }
             if (count < Count)
                 Cards.RemoveRange(0, Count - count);
@@ -38,34 +36,21 @@ namespace WindowsFormsApp3
 
         public void Mix()
         {
-            Random rnd = new Random();
-            List<Card> newCards = new List<Card>();
-
-            for (int i = Cards.Count; i > 0; i--)
-            {
-                Card a = Cards[rnd.Next(0, Cards.Count)];
-                newCards.Add(a);
-                Cards.Remove(a);
-            }
-
-            Cards = newCards;
+            
         }
 
-        public Card Pull()
-        {
-            return Pull(0);
-        }
+        
 
         public Card Pull(int number)
         {
             if (number > Count - 1) return null;
 
-            Card a = Cards[number];
+            LandscapeCard a = Cards[number];
             Cards.RemoveAt(number);
             return a;
         }
 
-        public Card Pull(Card card)
+        public Card Pull(LandscapeCard card)
         {
             int ind = Cards.IndexOf(card);
             if (ind == -1) throw new Exception("Card's not find from cardset");
@@ -84,15 +69,15 @@ namespace WindowsFormsApp3
         public virtual void Sort()
         {
             Cards.Sort((card1, card2) =>
-            card1.Character.CompareTo(card2.Character) == 0 ?
+            card1.Landscape.CompareTo(card2.Landscape) == 0 ?
             card1.Landscape.CompareTo(card2.Landscape) :
-            card1.Character.CompareTo(card2.Character)
+            card1.Landscape.CompareTo(card2.Landscape)
                 );
         }
 
-        public CardSet Deal(int amount)
+        public LandscapeSet Deal(int amount)
         {
-            CardSet c = new CardSet();
+            LandscapeSet c = new LandscapeSet();
             if (amount > Cards.Count) amount = Cards.Count;
 
             for (int i = 0; i < amount; i++)
@@ -104,7 +89,7 @@ namespace WindowsFormsApp3
             return c;
         }
 
-        public void Add(params Card[] card)
+        public void Add(params LandscapeCard[] card)
         {
             foreach (var item in card)
             {
@@ -112,7 +97,7 @@ namespace WindowsFormsApp3
             }
         }
 
-        public void Add(CardSet cards)
+        public void Add(LandscapeSet cards)
         {
             Add(cards.Cards.ToArray());
         }

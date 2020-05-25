@@ -100,8 +100,8 @@ namespace WindowsFormsApp3
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            game = new Game(new GraphicCardSet(pnlTable), new GraphicCardSet(pnlDeck, 36),
-               new Player("Bob", new GraphicCardSet(pnlPlayer1)), new Player("Tom", new GraphicCardSet(pnlPlayer2)));
+            game = new Game(new GraphicCardSet(pnlTable1), new GraphicCardSet(pnlTable2), new GraphicCardSet(pnlDeck, 36),
+               new Player("P1", new GraphicCardSet(pnlPlayer1)), new Player("P2", new GraphicCardSet(pnlPlayer2)));
 
             foreach (var card in game.Deck.Cards)
             {
@@ -122,6 +122,11 @@ namespace WindowsFormsApp3
         }
 
         private void pnlDeck_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlTable_Paint(object sender, PaintEventArgs e)
         {
 
         }

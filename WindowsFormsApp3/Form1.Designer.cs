@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlPlayer1 = new System.Windows.Forms.Panel();
             this.pnlPlayer2 = new System.Windows.Forms.Panel();
-            this.pnlTable = new System.Windows.Forms.Panel();
+            this.pnlTable2 = new System.Windows.Forms.Panel();
             this.pnlDeck = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlTable1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // pnlPlayer1
@@ -54,13 +54,14 @@
             this.pnlPlayer2.Size = new System.Drawing.Size(1054, 119);
             this.pnlPlayer2.TabIndex = 1;
             // 
-            // pnlTable
+            // pnlTable2
             // 
-            this.pnlTable.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTable.Location = new System.Drawing.Point(12, 127);
-            this.pnlTable.Name = "pnlTable";
-            this.pnlTable.Size = new System.Drawing.Size(1019, 232);
-            this.pnlTable.TabIndex = 2;
+            this.pnlTable2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTable2.Location = new System.Drawing.Point(12, 127);
+            this.pnlTable2.Name = "pnlTable2";
+            this.pnlTable2.Size = new System.Drawing.Size(1019, 169);
+            this.pnlTable2.TabIndex = 2;
+            this.pnlTable2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTable_Paint);
             // 
             // pnlDeck
             // 
@@ -75,7 +76,7 @@
             // 
             this.lblMessage.AutoSize = true;
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.Location = new System.Drawing.Point(380, 283);
+            this.lblMessage.Location = new System.Drawing.Point(1037, 283);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(35, 13);
             this.lblMessage.TabIndex = 4;
@@ -85,7 +86,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(87, 391);
+            this.button1.Location = new System.Drawing.Point(87, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -102,18 +103,26 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "P2Table";
             // 
+            // pnlTable1
+            // 
+            this.pnlTable1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTable1.Location = new System.Drawing.Point(27, 400);
+            this.pnlTable1.Name = "pnlTable1";
+            this.pnlTable1.Size = new System.Drawing.Size(1019, 160);
+            this.pnlTable1.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1090, 707);
+            this.Controls.Add(this.pnlTable1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.pnlDeck);
-            this.Controls.Add(this.pnlTable);
+            this.Controls.Add(this.pnlTable2);
             this.Controls.Add(this.pnlPlayer2);
             this.Controls.Add(this.pnlPlayer1);
             this.Name = "Form1";
@@ -128,11 +137,12 @@
 
         private System.Windows.Forms.Panel pnlPlayer1;
         private System.Windows.Forms.Panel pnlPlayer2;
-        private System.Windows.Forms.Panel pnlTable;
+        private System.Windows.Forms.Panel pnlTable2;
         private System.Windows.Forms.Panel pnlDeck;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlTable1;
     }
 }
 

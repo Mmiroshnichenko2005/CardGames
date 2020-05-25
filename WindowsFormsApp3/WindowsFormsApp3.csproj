@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Card %281%29.cs" />
     <Compile Include="CardSet %281%29.cs" />
+    <Compile Include="CharacterCard.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +58,8 @@
     <Compile Include="Game.cs" />
     <Compile Include="GraphicCard %281%29.cs" />
     <Compile Include="GraphicCardSet %281%29.cs" />
+    <Compile Include="LandscapeCard.cs" />
+    <Compile Include="LandscapeSet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
