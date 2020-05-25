@@ -4,12 +4,6 @@ using System.Text;
 
 namespace WindowsFormsApp3
 {
-    public enum CardCharacter
-    {
-        low,
-        medium,
-        high
-    }
 
     public enum CardLandscape
     {
@@ -20,14 +14,19 @@ namespace WindowsFormsApp3
     }
     class Card
     {
-        public CardCharacter Character { get; set; }
-        public CardLandscape Landscape { get; set; }
-
-        public Card(CardCharacter character, CardLandscape landscape)
+        public Card(int character, CardLandscape landscape, int hP, int damage)
         {
             Character = character;
-            Landscape = landscape; 
+            Landscape = landscape;
+            HP = hP;
+            Damage = damage;
         }
+
+        public int Character { get; set; }
+        public CardLandscape Landscape { get; set; }
+        public int HP { get; set; }
+        public int Damage { get; set; }
+
 
         public virtual void Show()
         {

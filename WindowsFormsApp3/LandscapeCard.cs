@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp3
 {
-    class LandscapeCard
+    class LandscapeCard : CardSet
     {
-        public enum CardLandscape
-        {
-            Naboo,
-            Jakku,
-            Hoth,
-            Achto
-        }
         public CardLandscape Landscape { get; set; }
         public LandscapeCard(CardLandscape landscape)
         {
