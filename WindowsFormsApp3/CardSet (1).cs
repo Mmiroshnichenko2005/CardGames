@@ -84,9 +84,9 @@ namespace WindowsFormsApp3
         public virtual void Sort()
         {
             Cards.Sort((card1, card2) =>
-            card1.Character.CompareTo(card2.Character) == 0 ?
+            card1.Money.CompareTo(card2.Money) == 0 ?
             card1.Landscape.CompareTo(card2.Landscape) :
-            card1.Character.CompareTo(card2.Character)
+            card1.Money.CompareTo(card2.Money)
                 );
         }
 

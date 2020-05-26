@@ -46,7 +46,7 @@ namespace WindowsFormsApp3
 
         public override string ToString()
         {
-            return String.Format($"{Landscape}s {Character}");
+            return String.Format($"{Landscape}s {Money}");
         }
 
     }

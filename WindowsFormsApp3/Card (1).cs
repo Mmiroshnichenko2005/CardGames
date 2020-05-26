@@ -14,15 +14,15 @@ namespace WindowsFormsApp3
     }
     class Card
     {
-        public Card(int character, CardLandscape landscape, int hP, int damage)
+        public Card(int money, CardLandscape landscape, int hP, int damage)
         {
-            Character = character;
+            Money = money;
             Landscape = landscape;
             HP = hP;
             Damage = damage;
         }
 
-        public int Character { get; set; }
+        public int Money { get; set; }
         public CardLandscape Landscape { get; set; }
         public int HP { get; set; }
         public int Damage { get; set; }
@@ -35,7 +35,7 @@ namespace WindowsFormsApp3
 
         public override string ToString()
         {
-            return String.Format("{0} {1}", Character, Landscape);
+            return String.Format("{0} {1}", Money, Landscape);
         }
     }
 }
