@@ -9,21 +9,29 @@ namespace WindowsFormsApp3
     class Game
     {
         //Кардсетов дожно быть по количеству мест, куда карты можно положить, то есть всего 8. Подумай, как два массива или что-то такое
+        //Player1SET
         public CardSet[] player1Set = new CardSet[4];
         public CardSet[] Player1Set
         {
             get { return player1Set; }
         }
-
-
-        public CardSet[] Player2Set = new CardSet[4];
+        public CardSet Card1P1 { get; }
+        public CardSet Card2P1 { get; }
+        public CardSet Card3P1 { get; }
+        public CardSet Card4P1 { get; }
+        //Player2Set
+        public CardSet[] player2Set = new CardSet[4];
+        public CardSet[] Player2Set
+        {
+            get { return player2Set; }
+        }
         public CardSet Card1P2 { get; }
         public CardSet Card2P2 { get; }
         public CardSet Card3P2 { get; }
         public CardSet Card4P2 { get; }
         //заменить плаер на воркардплеер
-        public Player Player1 { get; }// думаю, больше двух игроков не будет, можно их делать не списком, а двумя переменными
-        public Player Player2 { get; }
+        public WarCardPlayer Player1 { get; }// думаю, больше двух игроков не будет, можно их делать не списком, а двумя переменными
+        public WarCardPlayer Player2 { get; }
 
         public CardSet Deck { get; }
         public Player ActivePlayer { get; set; }
@@ -33,14 +41,23 @@ namespace WindowsFormsApp3
 
         public int Money { get; set; }//добавляем еще переменную, которая содержит инфу, стоимость на ход у игрока
 
-        public Game(CardSet tableP1, CardSet tableP2, CardSet deck, params Player[] players)
+        public Game(CardSet card1P1, CardSet card2P1, CardSet card3P1, CardSet card4P1, CardSet card1P2, CardSet card2P2, CardSet card3P2, CardSet card4P2, WarCardPlayer p1, WarCardPlayer p2)
         {
-            player1Set[0] = tableP2;
+            //Set1
+            player1Set[0] = card1P1;
+            player1Set[1] = card2P1;
+            player1Set[2] = card3P1;
+            player1Set[3] = card4P1;
+            //Set2
+            player2Set[0] = card1P1;
+            player2Set[1] = card2P1;
+            player2Set[2] = card3P1;
+            player2Set[3] = card4P1;
+            //Player1
+            Player1 = p1;
+            //Player2
+            Player2 = p2;
 
-            TableP1 = tableP1;
-            TableP2 = tableP2;
-            Players = new List<Player>(players);
-            Deck = deck;
             ActivePlayer = Player1;
             ActiveCardSet = Player1Set;
         }
@@ -82,9 +99,9 @@ namespace WindowsFormsApp3
         private Player NextPlayer(Player player)
         {
             //тут можно упростить логику, если игроков будет только двое
-            if (player == Players[Players.Count - 1]) return Players[0];
+            if (player == Player1) return Player2;
 
-            return Players[Players.IndexOf(player) + 1];
+            return Player1;
         }
 
         private Player PreviousPlayer(Player player)
@@ -93,22 +110,19 @@ namespace WindowsFormsApp3
 
             return Players[Players.IndexOf(player) - 1];
         }
-
-        //бой надо прописать
-        // тут все относительно просто, думаю допрешь
-        // если коротко, то проверяешь соответственные кардсеты, забираешь хп, удаляешь игроков, жизни которых закончены
-
-
         //еще нужен метод для того, чтоб отдать ход. В нем ты меняешь активного и 
         //всю оставшуюся стоимость забираешь картами
         //везде, где меняешь активного игрока нужно, по-моему, добавлять карту активному
-
+        
+        //бой надо прописать
+        // тут все относительно просто, думаю допрешь
+        // если коротко, то проверяешь соответственные кардсеты, забираешь хп, удаляешь игроков, жизни которых закончены
         public void Beat()
         {
             for (int i = 0; i < player1Set.Length; i++)
             {
-                Shot(player1Set[i], Player2Set[i], Player2);
-                Shot(player2Set[i], Player1Set[i], Player1);
+                Shot(Player1Set[i], Player2Set[i], Player2);
+                Shot(Player2Set[i], Player1Set[i], Player1);
             }
             //проверить побитые карты
             //проверить побитого игрока
@@ -116,11 +130,14 @@ namespace WindowsFormsApp3
            //подготовить сл. ход.
         }
 
-        private void Shot(CardSet active, CardSet passive, Player passivePlayer)
+        private void Shot(CardSet active, CardSet passive, WarCardPlayer passivePlayer)
         {
             if (active.Cards.Count == 0) return;
 
-            if (passive.Cards.Count == 0) { }//снять хп
+            if (passive.Cards.Count == 0)
+            {
+                passivePlayer.HP -= active.Cards[0].Damage;//снять хп
+            }
 
             passive.Cards[0].HP -= active.Cards[0].Damage;
 
@@ -137,17 +154,31 @@ namespace WindowsFormsApp3
         }
         public void GameOver()
         {
-            foreach (var item in Players)
+            if (Player1.HP==0)
             {
-                if (item.PlayerCards.Cards.Count != 0)
-                    ShowMessage(item.Name + "loose");
+                ShowMessage("Player2 win");
+                HangUp();
+            }
+            if (Player2.HP == 0)
+            {
+                ShowMessage("Player1 win");
+                HangUp();
             }
         }
 
         public void HangUp()
         {
-            TableP1.Cards.Clear();
-            TableP2.Cards.Clear();
+            //Set1 Clear
+            Card1P1.Cards.Clear();
+            Card2P1.Cards.Clear();
+            Card3P1.Cards.Clear();
+            Card4P1.Cards.Clear();
+            //Set2 Clear
+            Card1P2.Cards.Clear();
+            Card2P2.Cards.Clear();
+            Card3P2.Cards.Clear();
+            Card4P2.Cards.Clear();
+            //Refresh
             Refresh();
         }
     }
