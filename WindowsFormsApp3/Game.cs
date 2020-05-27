@@ -92,7 +92,7 @@ namespace WindowsFormsApp3
             {
                 item.PlayerCards.Show();
             }
-            TableP1.Show();
+            
             TableP2.Show();
         }
 
@@ -148,7 +148,7 @@ namespace WindowsFormsApp3
             Deck.Mix();
             foreach (var item in Players)
             {
-                item.PlayerCards.Add(Deck.Deal(4));
+                item.PlayerCards.Add(Deck.Deal(6));
             }
             Refresh();
         }

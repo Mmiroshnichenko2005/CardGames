@@ -28,53 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlPlayer1 = new System.Windows.Forms.Panel();
             this.pnlPlayer2 = new System.Windows.Forms.Panel();
-            this.pnlTable2 = new System.Windows.Forms.Panel();
+            this.pnlPlayer1 = new System.Windows.Forms.Panel();
+            this.Card1P2 = new System.Windows.Forms.Panel();
             this.pnlDeck = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlTable1 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Card2P2 = new System.Windows.Forms.Panel();
+            this.Card3P2 = new System.Windows.Forms.Panel();
+            this.Card4P2 = new System.Windows.Forms.Panel();
+            this.Card1P1 = new System.Windows.Forms.Panel();
+            this.Card2P1 = new System.Windows.Forms.Panel();
+            this.Card3P1 = new System.Windows.Forms.Panel();
+            this.Card4P1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // pnlPlayer1
-            // 
-            this.pnlPlayer1.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPlayer1.Location = new System.Drawing.Point(16, 15);
-            this.pnlPlayer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlPlayer1.Name = "pnlPlayer1";
-            this.pnlPlayer1.Size = new System.Drawing.Size(1405, 122);
-            this.pnlPlayer1.TabIndex = 0;
             // 
             // pnlPlayer2
             // 
             this.pnlPlayer2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPlayer2.Location = new System.Drawing.Point(16, 709);
-            this.pnlPlayer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPlayer2.Location = new System.Drawing.Point(1, 1);
             this.pnlPlayer2.Name = "pnlPlayer2";
-            this.pnlPlayer2.Size = new System.Drawing.Size(1405, 146);
-            this.pnlPlayer2.TabIndex = 1;
+            this.pnlPlayer2.Size = new System.Drawing.Size(1022, 121);
+            this.pnlPlayer2.TabIndex = 0;
             // 
-            // pnlTable2
+            // pnlPlayer1
             // 
-            this.pnlTable2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTable2.Location = new System.Drawing.Point(261, 156);
-            this.pnlTable2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlTable2.Name = "pnlTable2";
-            this.pnlTable2.Size = new System.Drawing.Size(144, 208);
-            this.pnlTable2.TabIndex = 2;
-            this.pnlTable2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTable_Paint);
+            this.pnlPlayer1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPlayer1.Location = new System.Drawing.Point(1, 505);
+            this.pnlPlayer1.Name = "pnlPlayer1";
+            this.pnlPlayer1.Size = new System.Drawing.Size(1022, 95);
+            this.pnlPlayer1.TabIndex = 1;
+            // 
+            // Card1P2
+            // 
+            this.Card1P2.BackColor = System.Drawing.Color.Transparent;
+            this.Card1P2.Location = new System.Drawing.Point(223, 142);
+            this.Card1P2.Name = "Card1P2";
+            this.Card1P2.Size = new System.Drawing.Size(108, 169);
+            this.Card1P2.TabIndex = 2;
+            this.Card1P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTable_Paint);
             // 
             // pnlDeck
             // 
             this.pnlDeck.BackColor = System.Drawing.Color.Transparent;
-            this.pnlDeck.Location = new System.Drawing.Point(1399, 156);
-            this.pnlDeck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDeck.Location = new System.Drawing.Point(1049, 127);
             this.pnlDeck.Name = "pnlDeck";
-            this.pnlDeck.Size = new System.Drawing.Size(23, 183);
+            this.pnlDeck.Size = new System.Drawing.Size(17, 149);
             this.pnlDeck.TabIndex = 3;
             this.pnlDeck.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDeck_Paint);
             // 
@@ -82,10 +83,9 @@
             // 
             this.lblMessage.AutoSize = true;
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.Location = new System.Drawing.Point(1383, 348);
-            this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMessage.Location = new System.Drawing.Point(1037, 283);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(46, 17);
+            this.lblMessage.Size = new System.Drawing.Size(35, 13);
             this.lblMessage.TabIndex = 4;
             this.lblMessage.Text = "label1";
             // 
@@ -93,10 +93,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(116, 420);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(87, 341);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "START";
             this.button1.UseVisualStyleBackColor = false;
@@ -105,57 +104,99 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(693, 137);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(459, 125);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "P2Table";
             // 
-            // pnlTable1
+            // Card2P2
             // 
-            this.pnlTable1.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTable1.Location = new System.Drawing.Point(36, 492);
-            this.pnlTable1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlTable1.Name = "pnlTable1";
-            this.pnlTable1.Size = new System.Drawing.Size(1359, 197);
-            this.pnlTable1.TabIndex = 3;
+            this.Card2P2.BackColor = System.Drawing.Color.Transparent;
+            this.Card2P2.Location = new System.Drawing.Point(359, 142);
+            this.Card2P2.Name = "Card2P2";
+            this.Card2P2.Size = new System.Drawing.Size(108, 169);
+            this.Card2P2.TabIndex = 7;
             // 
-            // panel1
+            // Card3P2
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(432, 157);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(144, 208);
-            this.panel1.TabIndex = 7;
+            this.Card3P2.BackColor = System.Drawing.Color.Transparent;
+            this.Card3P2.Location = new System.Drawing.Point(503, 142);
+            this.Card3P2.Name = "Card3P2";
+            this.Card3P2.Size = new System.Drawing.Size(108, 169);
+            this.Card3P2.TabIndex = 3;
+            this.Card3P2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // panel2
+            // Card4P2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(610, 158);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(144, 208);
-            this.panel2.TabIndex = 3;
+            this.Card4P2.BackColor = System.Drawing.Color.Transparent;
+            this.Card4P2.Location = new System.Drawing.Point(632, 142);
+            this.Card4P2.Name = "Card4P2";
+            this.Card4P2.Size = new System.Drawing.Size(108, 169);
+            this.Card4P2.TabIndex = 4;
+            // 
+            // Card1P1
+            // 
+            this.Card1P1.BackColor = System.Drawing.Color.Transparent;
+            this.Card1P1.Location = new System.Drawing.Point(223, 317);
+            this.Card1P1.Name = "Card1P1";
+            this.Card1P1.Size = new System.Drawing.Size(108, 169);
+            this.Card1P1.TabIndex = 3;
+            // 
+            // Card2P1
+            // 
+            this.Card2P1.BackColor = System.Drawing.Color.Transparent;
+            this.Card2P1.Location = new System.Drawing.Point(359, 317);
+            this.Card2P1.Name = "Card2P1";
+            this.Card2P1.Size = new System.Drawing.Size(108, 169);
+            this.Card2P1.TabIndex = 4;
+            // 
+            // Card3P1
+            // 
+            this.Card3P1.BackColor = System.Drawing.Color.Transparent;
+            this.Card3P1.Location = new System.Drawing.Point(503, 317);
+            this.Card3P1.Name = "Card3P1";
+            this.Card3P1.Size = new System.Drawing.Size(108, 169);
+            this.Card3P1.TabIndex = 5;
+            // 
+            // Card4P1
+            // 
+            this.Card4P1.BackColor = System.Drawing.Color.Transparent;
+            this.Card4P1.Location = new System.Drawing.Point(632, 317);
+            this.Card4P1.Name = "Card4P1";
+            this.Card4P1.Size = new System.Drawing.Size(108, 169);
+            this.Card4P1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(458, 489);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "P1Table";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1453, 870);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlTable1);
+            this.ClientSize = new System.Drawing.Size(1022, 602);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Card4P1);
+            this.Controls.Add(this.Card3P1);
+            this.Controls.Add(this.Card2P1);
+            this.Controls.Add(this.Card1P1);
+            this.Controls.Add(this.Card4P2);
+            this.Controls.Add(this.Card3P2);
+            this.Controls.Add(this.Card2P2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.pnlDeck);
-            this.Controls.Add(this.pnlTable2);
-            this.Controls.Add(this.pnlPlayer2);
+            this.Controls.Add(this.Card1P2);
             this.Controls.Add(this.pnlPlayer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.pnlPlayer2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -166,16 +207,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlPlayer1;
         private System.Windows.Forms.Panel pnlPlayer2;
-        private System.Windows.Forms.Panel pnlTable2;
+        private System.Windows.Forms.Panel pnlPlayer1;
+        private System.Windows.Forms.Panel Card1P2;
         private System.Windows.Forms.Panel pnlDeck;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlTable1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Card2P2;
+        private System.Windows.Forms.Panel Card3P2;
+        private System.Windows.Forms.Panel Card4P2;
+        private System.Windows.Forms.Panel Card1P1;
+        private System.Windows.Forms.Panel Card2P1;
+        private System.Windows.Forms.Panel Card3P1;
+        private System.Windows.Forms.Panel Card4P1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
