@@ -74,10 +74,16 @@ namespace WindowsFormsApp3
             if (mover == ActivePlayer)//это уже проверили, ни к чему
             {
 
-                // проверяем хватает ли стоимости на ход этой картой
-                //тут проверяем, пустой ли кадсет или нет. Если нет. Ту карту, которая там, сбрасываем (удаляем)
-                // после этого добавляем карту в кадсет to   TableP1.Add(mover.PlayerCards.Pull(card));
-                if (ActivePlayer)// если исчерпана стоимость активного игрока, меняем активного, обозначаем активного
+                if (Money <= 0) return;// проверяем хватает ли стоимости на ход этой картой
+                if(to = )//тут проверяем, пустой ли кадсет или нет. Если нет. Ту карту, которая там, сбрасываем (удаляем)
+                to.Add(mover.PlayerCards.Pull(card));
+                if (Money==0)
+                {
+                    NextPlayer(mover);// если исчерпана стоимость активного игрока, меняем активного, обозначаем активного
+                    to.Add(card);
+                    mover = ActivePlayer;
+
+                }
             }
 
             ActivePlayer = NextPlayer(ActivePlayer);
@@ -88,12 +94,14 @@ namespace WindowsFormsApp3
 
         public void Refresh()
         {
-            foreach (var item in Players)//введешь кучу кардсетов, логика усложнится
+            foreach (var item in Player1Set)//введешь кучу кардсетов, логика усложнится
             {
-                item.PlayerCards.Show();
+                item.Show();
             }
-            
-            TableP2.Show();
+            foreach (var item in Player2Set)//введешь кучу кардсетов, логика усложнится
+            {
+                item.Show();
+            }
         }
 
         private Player NextPlayer(Player player)
@@ -106,17 +114,14 @@ namespace WindowsFormsApp3
 
         private Player PreviousPlayer(Player player)
         {
-            if (player == Players[0]) return Players[Players.Count - 1];
+            if (player == Player1) return Player2;
 
-            return Players[Players.IndexOf(player) - 1];
+            return Player1;
         }
         //еще нужен метод для того, чтоб отдать ход. В нем ты меняешь активного и 
         //всю оставшуюся стоимость забираешь картами
         //везде, где меняешь активного игрока нужно, по-моему, добавлять карту активному
         
-        //бой надо прописать
-        // тут все относительно просто, думаю допрешь
-        // если коротко, то проверяешь соответственные кардсеты, забираешь хп, удаляешь игроков, жизни которых закончены
         public void Beat()
         {
             for (int i = 0; i < player1Set.Length; i++)
@@ -124,31 +129,33 @@ namespace WindowsFormsApp3
                 Shot(Player1Set[i], Player2Set[i], Player2);
                 Shot(Player2Set[i], Player1Set[i], Player1);
             }
-            //проверить побитые карты
-            //проверить побитого игрока
-           //рефреш
-           //подготовить сл. ход.
+            
+            //подготовить сл. ход.
         }
 
         private void Shot(CardSet active, CardSet passive, WarCardPlayer passivePlayer)
         {
             if (active.Cards.Count == 0) return;
-
-            if (passive.Cards.Count == 0)
+            
+            if (passive.Cards.Count == 0)//проверить побитого игрока
             {
                 passivePlayer.HP -= active.Cards[0].Damage;//снять хп
             }
 
-            passive.Cards[0].HP -= active.Cards[0].Damage;
-
+            passive.Cards[0].HP -= active.Cards[0].Damage;//проверить побитые карты
+            Refresh();//рефреш
         }
 
         public void Deal()
         {
             Deck.Mix();
-            foreach (var item in Players)
+            foreach (var item in Player1Set)
             {
-                item.PlayerCards.Add(Deck.Deal(6));
+                item.Add(Deck.Deal(6));
+            }
+            foreach (var item in Player2Set)
+            {
+                item.Add(Deck.Deal(6));
             }
             Refresh();
         }

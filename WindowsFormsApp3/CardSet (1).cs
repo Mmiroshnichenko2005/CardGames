@@ -24,13 +24,12 @@ namespace WindowsFormsApp3
 
         public CardSet(int count) : this()
         {
-            foreach (var character in Enum.GetValues(typeof(CardCharacter)))
-            {
+            
                 foreach (var landscape in Enum.GetValues(typeof(CardLandscape)))
                 {
-                    Cards.Add(new Card((CardCharacter)character, (CardLandscape)landscape));
+                    Cards.Add(new Card((CardLandscape)landscape));
                 }
-            }
+            
             if (count < Count)
                 Cards.RemoveRange(0, Count - count);
         }
