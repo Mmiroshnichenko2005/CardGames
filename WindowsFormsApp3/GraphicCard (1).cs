@@ -8,9 +8,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp3
 {
-    class GraphicCard: Card
+    class GraphicCard : Card
     {
         public PictureBox Pb { get; set; }
+        public Label lblHp{get;set;}
         public bool Opened
         {
             get
@@ -21,6 +22,7 @@ namespace WindowsFormsApp3
             {
                 opened = value;
                 Pb.Image = opened ? Image.FromFile(fileName) : Image.FromFile(imageShirtPath);
+                //lblHp.Text
             }
         }
 
@@ -42,6 +44,7 @@ namespace WindowsFormsApp3
         public override void Show()
         {
             Pb.Visible = true;
+            lblHp.Text = HP.ToString();
         }
 
         public override string ToString()

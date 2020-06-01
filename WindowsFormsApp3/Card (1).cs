@@ -22,10 +22,17 @@ namespace WindowsFormsApp3
             Damage = damage;
         }
 
+        public Card(string description)
+        {
+            //from string "1 "
+        }
+
         public int Money { get; set; }
         public CardLandscape Landscape { get; set; }
         public int HP { get; set; }
         public int Damage { get; set; }
+
+        public string Name { get; set; }
 
 
         public virtual void Show()

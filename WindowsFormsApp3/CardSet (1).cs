@@ -4,7 +4,11 @@ using System.Text;
 
 namespace WindowsFormsApp3
 {
-
+    enum CardSetType
+    {
+        Empty,
+        Full
+    }
     class CardSet
     {
         public List<Card> Cards { get; set; }
@@ -22,16 +26,11 @@ namespace WindowsFormsApp3
         public CardSet() : this(new List<Card>())
         { }
 
-        public CardSet(int count) : this()
+        public CardSet(CardSetType cardSetType) : this()
         {
-            
-                foreach (var landscape in Enum.GetValues(typeof(CardLandscape)))
-                {
-                    Cards.Add(new Card((CardLandscape)landscape));
-                }
-            
-            if (count < Count)
-                Cards.RemoveRange(0, Count - count);
+            if (cardSetType == CardSetType.Empty) return;
+
+             //Набрать карты
         }
 
 

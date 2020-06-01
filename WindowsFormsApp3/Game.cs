@@ -15,27 +15,22 @@ namespace WindowsFormsApp3
         {
             get { return player1Set; }
         }
-        public CardSet Card1P1 { get; }
-        public CardSet Card2P1 { get; }
-        public CardSet Card3P1 { get; }
-        public CardSet Card4P1 { get; }
+
         //Player2Set
         public CardSet[] player2Set = new CardSet[4];
         public CardSet[] Player2Set
         {
             get { return player2Set; }
         }
-        public CardSet Card1P2 { get; }
-        public CardSet Card2P2 { get; }
-        public CardSet Card3P2 { get; }
-        public CardSet Card4P2 { get; }
+
         //заменить плаер на воркардплеер
         public WarCardPlayer Player1 { get; }// думаю, больше двух игроков не будет, можно их делать не списком, а двумя переменными
         public WarCardPlayer Player2 { get; }
 
         public CardSet Deck { get; }
-        public Player ActivePlayer { get; set; }
-        public CardSet[] ActiveCardSet { get; set; }
+        public WarCardPlayer ActivePlayer { get; set; }
+        public CardSet[] ActivePlayerTable { get; set; }
+        public WarCardPlayer firstPlayer { get; set; }
         public Action<Player> MarkActivePlayer;
         public Action<string> ShowMessage;
 
@@ -58,39 +53,56 @@ namespace WindowsFormsApp3
             //Player2
             Player2 = p2;
 
+            //deck
+
             ActivePlayer = Player1;
-            ActiveCardSet = Player1Set;
+            ActivePlayerTable = Player1Set;
+            firstPlayer = Player1;
         }
 
-        public void Move(Player mover, Card card, CardSet to) //тут мы еще получаем кардсет, куда он ходит, назовем его to
+        public void Move(WarCardPlayer mover, Card card, CardSet to) //тут мы еще получаем кардсет, куда он ходит, назовем его to
         {
             if (mover != ActivePlayer) return;
 
             if (mover.PlayerCards.Cards.IndexOf(card) == -1) return;
 
             //проверяем, ему ли принадлежит кардсет, куда он хочет походить
-            if (ActiveCardSet.FirstOrDefault(cs => cs == to) == null) return;
+            if (ActivePlayerTable.FirstOrDefault(cs => cs == to) == null) return;
 
-            if (mover == ActivePlayer)//это уже проверили, ни к чему
+
+
+            if (Money < card.Money) return;// проверяем хватает ли стоимости на ход этой картой
+            if (to.Cards.Count > 0) to.Cards.Clear();//тут проверяем, пустой ли кадсет или нет. Если нет. Ту карту, которая там, сбрасываем (удаляем)
+            to.Add(mover.PlayerCards.Pull(card));
+            if (Money == 0)
             {
+                NextMove();
 
-                if (Money <= 0) return;// проверяем хватает ли стоимости на ход этой картой
-                if(to = )//тут проверяем, пустой ли кадсет или нет. Если нет. Ту карту, которая там, сбрасываем (удаляем)
-                to.Add(mover.PlayerCards.Pull(card));
-                if (Money==0)
-                {
-                    NextPlayer(mover);// если исчерпана стоимость активного игрока, меняем активного, обозначаем активного
-                    to.Add(card);
-                    mover = ActivePlayer;
-
-                }
             }
 
-            ActivePlayer = NextPlayer(ActivePlayer);
+
             MarkActivePlayer(ActivePlayer);
+
             Refresh();
         }
 
+        private void NextMove()
+        {
+            if (ActivePlayer == firstPlayer)
+            {
+                ActivePlayer = NextPlayer(ActivePlayer);
+                MarkActivePlayer(ActivePlayer);
+                Money = 2;
+            }
+            else
+            {
+                Beat();// если исчерпана стоимость активного игрока, меняем активного, обозначаем активного
+            }
+
+            firstPlayer = firstPlayer == Player1 ? Player2 : Player1;
+            ActivePlayer = firstPlayer;
+            Refresh();
+        }
 
         public void Refresh()
         {
@@ -104,16 +116,9 @@ namespace WindowsFormsApp3
             }
         }
 
-        private Player NextPlayer(Player player)
+        private WarCardPlayer NextPlayer(WarCardPlayer player)
         {
             //тут можно упростить логику, если игроков будет только двое
-            if (player == Player1) return Player2;
-
-            return Player1;
-        }
-
-        private Player PreviousPlayer(Player player)
-        {
             if (player == Player1) return Player2;
 
             return Player1;
@@ -128,8 +133,13 @@ namespace WindowsFormsApp3
             {
                 Shot(Player1Set[i], Player2Set[i], Player2);
                 Shot(Player2Set[i], Player1Set[i], Player1);
+                if (Player1Set[i].Cards[0].HP <= 0) Player1Set[i].Cards.Clear();
+                if (Player2Set[i].Cards[0].HP <= 0) Player2Set[i].Cards.Clear();
             }
-            
+
+
+
+
             //подготовить сл. ход.
         }
 
@@ -143,7 +153,6 @@ namespace WindowsFormsApp3
             }
 
             passive.Cards[0].HP -= active.Cards[0].Damage;//проверить побитые карты
-            Refresh();//рефреш
         }
 
         public void Deal()
@@ -164,29 +173,12 @@ namespace WindowsFormsApp3
             if (Player1.HP==0)
             {
                 ShowMessage("Player2 win");
-                HangUp();
             }
             if (Player2.HP == 0)
             {
                 ShowMessage("Player1 win");
-                HangUp();
             }
         }
 
-        public void HangUp()
-        {
-            //Set1 Clear
-            Card1P1.Cards.Clear();
-            Card2P1.Cards.Clear();
-            Card3P1.Cards.Clear();
-            Card4P1.Cards.Clear();
-            //Set2 Clear
-            Card1P2.Cards.Clear();
-            Card2P2.Cards.Clear();
-            Card3P2.Cards.Clear();
-            Card4P2.Cards.Clear();
-            //Refresh
-            Refresh();
-        }
     }
 }
