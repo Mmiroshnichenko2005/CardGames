@@ -30,7 +30,7 @@ namespace WindowsFormsApp3
         private readonly string imageShirtPath = Application.StartupPath + @"\Cards\shirt.png";
         private readonly string fileName;
 
-        public GraphicCard(CardCharacter character, CardLandscape landscape, PictureBox pb, bool opened = true) : base(character, landscape)
+        public GraphicCard(int money, CardLandscape landscape, int hP, int damage, PictureBox pb, bool opened = true):base(money,landscape,hP,damage)
         {
             Pb = pb;
             Pb.SizeMode = PictureBoxSizeMode.Zoom;
@@ -39,7 +39,7 @@ namespace WindowsFormsApp3
             Opened = opened;
         }
 
-        public GraphicCard(CardCharacter character, CardLandscape landscape) : this(character, landscape, new PictureBox()) { }
+        //public GraphicCard(CardLandscape landscape) : this(landscape, new PictureBox()) { }
 
         public override void Show()
         {

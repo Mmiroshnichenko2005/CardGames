@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace WindowsFormsApp3
 {
@@ -14,6 +15,7 @@ namespace WindowsFormsApp3
     }
     class Card
     {
+        
         public Card(int money, CardLandscape landscape, int hP, int damage)
         {
             Money = money;
@@ -24,6 +26,8 @@ namespace WindowsFormsApp3
 
         public Card(string description)
         {
+           // List<CardSet> cs = new List<CardSet>();
+          //  cs.Add(new Card(1,CardLandscape.Achto,4,2))
             //from string "1 "
         }
 
@@ -42,7 +46,7 @@ namespace WindowsFormsApp3
 
         public override string ToString()
         {
-            return String.Format("{0} {1}", Money, Landscape);
+            return String.Format("{0}",Name);
         }
     }
 }
