@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
             {
                 opened = value;
                 Pb.Image = opened ? Image.FromFile(fileName) : Image.FromFile(imageShirtPath);
-                //lblHp.Text
+                //lblHp.Text = HP.ToString();
             }
         }
 
@@ -30,8 +30,9 @@ namespace WindowsFormsApp3
         private readonly string imageShirtPath = Application.StartupPath + @"\Cards\shirt.png";
         private readonly string fileName;
 
-        public GraphicCard(int money, CardLandscape landscape, int hP, int damage, PictureBox pb, bool opened = true):base(money,landscape,hP,damage)
+        public GraphicCard(int money, CardLandscape landscape, int hP, int damage, PictureBox pb, Label lb, bool opened = true):base(money,landscape,hP,damage)
         {
+            lblHp = lb;
             Pb = pb;
             Pb.SizeMode = PictureBoxSizeMode.Zoom;
             Pb.Visible = false;
@@ -49,7 +50,7 @@ namespace WindowsFormsApp3
 
         public override string ToString()
         {
-            return String.Format($"{Landscape}s {Money}");
+            return String.Format($"{Name}");
         }
 
     }

@@ -30,7 +30,11 @@ namespace WindowsFormsApp3
         {
             if (cardSetType == CardSetType.Empty) return;
 
-             //Набрать карты
+            //Набрать карты
+            foreach (var item in collection)
+            {
+                //Cards.Add(new Card(()))
+            }
         }
 
 
