@@ -14,7 +14,7 @@ namespace WindowsFormsApp3
     {
         Card activeCard;
         Game game;
-        Player mover;
+        WarCardPlayer mover;
         public Form1()
         {
             InitializeComponent();

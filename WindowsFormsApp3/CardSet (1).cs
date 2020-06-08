@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace WindowsFormsApp3
@@ -7,7 +8,7 @@ namespace WindowsFormsApp3
     enum CardSetType
     {
         Empty,
-        Full
+        File
     }
     class CardSet
     {
@@ -26,17 +27,34 @@ namespace WindowsFormsApp3
         public CardSet() : this(new List<Card>())
         { }
 
-        public CardSet(CardSetType cardSetType) : this()
+        public CardSet(CardSetType cardSetType, string directory=@"bin\Debug\Cards") : this()
         {
             if (cardSetType == CardSetType.Empty) return;
 
             //Набрать карты
-            foreach (var item in collection)
+            try
             {
-                //Cards.Add(new Card(()))
+                StreamReader streamReader = new StreamReader(directory + "descriptions.txt");
+                Cards = GetCardsFromFile(streamReader);
+                streamReader.Close();
+            }
+            catch
+            {
+                throw new Exception("directory with cards is incorrect");
             }
         }
 
+        private List<Card> GetCardsFromFile(StreamReader streamReader)
+        {
+            List<Card> cards = new List<Card>();
+            var allFile = streamReader.ReadToEnd();
+            string[] lines = allFile.Split('\n');
+            foreach (var line in lines)
+            {
+                cards.Add(new Card(line.Trim()));
+            }
+            return cards;
+        }
 
         public void Mix()
         {

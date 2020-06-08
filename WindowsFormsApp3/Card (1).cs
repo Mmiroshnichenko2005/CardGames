@@ -26,9 +26,13 @@ namespace WindowsFormsApp3
 
         public Card(string description)
         {
-           // List<CardSet> cs = new List<CardSet>();
-          //  cs.Add(new Card(1,CardLandscape.Achto,4,2))
-            //from string "1 "
+            //"RedHorseKnight 2 Jakku 4 2"
+            string[] s = description.Split(' ');
+            Name = s[0];
+            Money = Convert.ToInt32(s[1]);
+            Landscape = FromString(s[2]);
+            HP = Convert.ToInt32(s[3]); 
+            Damage = Convert.ToInt32(s[4]);
         }
 
         public int Money { get; set; }
@@ -38,6 +42,22 @@ namespace WindowsFormsApp3
 
         public string Name { get; set; }
 
+
+        public CardLandscape FromString(string landScapeString)
+        {
+            switch (landScapeString)
+            {
+                case "Naboo": 
+                    return CardLandscape.Naboo;
+                case "Jakku":
+                    return CardLandscape.Jakku;
+                case "Hoth":
+                    return CardLandscape.Hoth;
+                case "Achto":
+                    return CardLandscape.Achto;
+                default: return default;
+            }
+        }
 
         public virtual void Show()
         {
