@@ -67,9 +67,6 @@ namespace WindowsFormsApp3
             Deck = deck;
 
 
-            ActivePlayer = Player1;
-            ActivePlayerTable = Player1Set;
-            firstPlayer = Player1;
         }
 
         public void Move(WarCardPlayer mover, Card card, CardSet to) //тут мы еще получаем кардсет, куда он ходит, назовем его to
@@ -93,27 +90,33 @@ namespace WindowsFormsApp3
             }
 
 
-            MarkActivePlayer(ActivePlayer);
 
             Refresh();
         }
 
-        private void NextMove()
+        public void NextMove()
         {
             if (ActivePlayer == firstPlayer)
             {
-                ActivePlayer = NextPlayer(ActivePlayer);
-                MarkActivePlayer(ActivePlayer);
+                SetActivePlayer(NextPlayer(ActivePlayer));
                 Money = 2;
             }
             else
             {
                 Beat();// если исчерпана стоимость активного игрока, меняем активного, обозначаем активного
-            }
 
-            firstPlayer = firstPlayer == Player1 ? Player2 : Player1;
-            ActivePlayer = firstPlayer;
+
+                firstPlayer = firstPlayer == Player1 ? Player2 : Player1;
+                SetActivePlayer(firstPlayer);
+            }
             Refresh();
+        }
+
+        private void SetActivePlayer(WarCardPlayer player)
+        {
+            ActivePlayer = player;
+            MarkActivePlayer(ActivePlayer);
+            ActivePlayerTable = ActivePlayer == Player1 ? Player1Set : Player2Set;
         }
 
         public void Refresh()
@@ -147,8 +150,8 @@ namespace WindowsFormsApp3
             {
                 Shot(Player1Set[i], Player2Set[i], Player2);
                 Shot(Player2Set[i], Player1Set[i], Player1);
-                if (Player1Set[i].Cards[0].HP <= 0) Player1Set[i].Cards.Clear();
-                if (Player2Set[i].Cards[0].HP <= 0) Player2Set[i].Cards.Clear();
+                if (Player1Set[i].Cards.Count>0 && Player1Set[i].Cards[0].HP <= 0) Player1Set[i].Cards.Clear();
+                if (Player1Set[i].Cards.Count > 0 && Player2Set[i].Cards[0].HP <= 0) Player2Set[i].Cards.Clear();
             }
 
 
@@ -185,6 +188,9 @@ namespace WindowsFormsApp3
 
             Player1.PlayerCards.Add(Deck.Deal(6));
             Player2.PlayerCards.Add(Deck.Deal(6));
+            Money = 2;
+            SetActivePlayer(Player1);
+            firstPlayer = Player1;
             Refresh();
         }
         public void GameOver()

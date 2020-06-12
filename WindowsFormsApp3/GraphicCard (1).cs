@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,6 +11,8 @@ namespace WindowsFormsApp3
 {
     class GraphicCard : Card
     {
+        private Image cardImage;
+        private Image shirtImage;
         public PictureBox Pb { get; set; }
         public Label lblHp{get;set;}
         public bool Opened
@@ -21,7 +24,8 @@ namespace WindowsFormsApp3
             set
             {
                 opened = value;
-                Pb.Image = opened ? Image.FromFile(fileName) : Image.FromFile(imageShirtPath);
+                Pb.Image = opened ? cardImage : shirtImage;
+                lblHp.Visible = opened ? true : false;
                 lblHp.Text = HP.ToString();
             }
         }
@@ -37,17 +41,21 @@ namespace WindowsFormsApp3
             Pb.SizeMode = PictureBoxSizeMode.Zoom;
             Pb.Visible = false;
             fileName = Application.StartupPath + @"\Cards\" + this.ToString() + ".png";
+            cardImage = Image.FromFile(fileName);
+            shirtImage = Image.FromFile(imageShirtPath);
             Opened = opened;
         }
 
-        public GraphicCard(string description, PictureBox pb, Label lb):base(description)
+        public GraphicCard(string description, PictureBox pb, Label lb, bool opened = false):base(description)
         {
             Pb = pb;
             lblHp = lb;
             Pb.SizeMode = PictureBoxSizeMode.Zoom;
             Pb.Visible = false;
             fileName = Application.StartupPath + @"\Cards\" + this.ToString() + ".png";
-            Pb.Image = Image.FromFile(fileName); //***********добавил инициализацию рисунка
+            cardImage = Image.FromFile(fileName);
+            shirtImage = Image.FromFile(imageShirtPath);
+            Opened = opened;//***********добавил инициализацию рисунка
         }
 
         public GraphicCard(string description) : this(description, new PictureBox(), new Label())

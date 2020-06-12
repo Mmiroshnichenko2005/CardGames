@@ -99,8 +99,8 @@ namespace WindowsFormsApp3
                 new GraphicCardSet(Card2P2),
                 new GraphicCardSet(Card3P2),
                 new GraphicCardSet(Card4P2),
-               new WarCardPlayer("P1", new GraphicCardSet(pnlPlayer2),25),
-               new WarCardPlayer("P2", new GraphicCardSet(pnlPlayer1),25),
+               new WarCardPlayer("P1", new GraphicCardSet(pnlPlayer1),25),
+               new WarCardPlayer("P2", new GraphicCardSet(pnlPlayer2),25),
                new GraphicCardSet(new Panel(), CardSetType.File));
 
             foreach (var card in game.Deck.Cards)
@@ -127,16 +127,17 @@ namespace WindowsFormsApp3
             }
         }
 
-        private void SetCardSet(PictureBox pictureBox)
+        private void SetCardSet(Control panelOrPb)
         {
             List<CardSet> allSets = new List<CardSet>();
             allSets.AddRange(game.Player1Set);
             allSets.AddRange(game.Player2Set);
 
-            to = allSets.FirstOrDefault(cs => ((GraphicCard)cs.Cards[0]).Pb == pictureBox);
+            to = panelOrPb is PictureBox?
+                allSets.FirstOrDefault(cs => ((GraphicCard)cs.Cards[0]).Pb == (PictureBox)panelOrPb) :
+                allSets.FirstOrDefault(cs => ((GraphicCardSet)cs).Panel == (Panel)panelOrPb);
             CheckReady();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -159,7 +160,17 @@ namespace WindowsFormsApp3
 
         private void Card4P1_Click(object sender, EventArgs e)
         {
-            
+
+            SetCardSet((Control)sender);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            activeCard = default;
+            mover = default;
+            to = default;
+            game.NextMove();
         }
     }
 }
