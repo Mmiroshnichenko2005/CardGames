@@ -55,7 +55,7 @@ namespace WindowsFormsApp3
                     return CardLandscape.Hoth;
                 case "Achto":
                     return CardLandscape.Achto;
-                default: return default;
+                default: return 0;
             }
         }
 

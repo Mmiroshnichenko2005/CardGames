@@ -22,7 +22,7 @@ namespace WindowsFormsApp3
             {
                 opened = value;
                 Pb.Image = opened ? Image.FromFile(fileName) : Image.FromFile(imageShirtPath);
-                //lblHp.Text = HP.ToString();
+                lblHp.Text = HP.ToString();
             }
         }
 

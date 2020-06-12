@@ -43,11 +43,11 @@ namespace WindowsFormsApp3
 
         public Card Pull(int number)
         {
-            if (number > Count - 1) return null;
+            //if (number > Count - 1) return null;
 
-            LandscapeCard a = Cards[number];
-            Cards.RemoveAt(number);
-            return a;
+            //LandscapeCard a = Cards[number];
+            //Cards.RemoveAt(number);
+            //return a;
         }
 
         public Card Pull(LandscapeCard card)

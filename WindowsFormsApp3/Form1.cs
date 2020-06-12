@@ -100,8 +100,8 @@ namespace WindowsFormsApp3
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            game = new Game(new GraphicCardSet(pnlTable1), new GraphicCardSet(Card1P2), new GraphicCardSet(pnlDeck, 36),
-               new Player("P1", new GraphicCardSet(pnlPlayer2)), new Player("P2", new GraphicCardSet(pnlPlayer1)));
+            game = new Game(new GraphicCardSet(Card1P1), new GraphicCardSet(Card2P1), new GraphicCardSet(Card3P1), new GraphicCardSet(Card4P1), new GraphicCardSet(Card1P2), new GraphicCardSet(Card2P2),new GraphicCardSet(Card3P2), new GraphicCardSet(Card4P2),
+               new WarCardPlayer("P1", new GraphicCardSet(pnlPlayer2),25), new WarCardPlayer("P2", new GraphicCardSet(pnlPlayer1),25));
 
             foreach (var card in game.Deck.Cards)
             {

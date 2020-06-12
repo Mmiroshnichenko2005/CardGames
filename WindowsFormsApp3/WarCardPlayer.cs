@@ -8,7 +8,7 @@ namespace WindowsFormsApp3
 {
     class WarCardPlayer:Player
     {
-        public WarCardPlayer(string name, CardSet cardSet, int hP) : base(name, cardSet)
+        public WarCardPlayer(string name, GraphicCardSet cardSet, int hP) : base(name, cardSet)
         {
             HP = hP;
         }
