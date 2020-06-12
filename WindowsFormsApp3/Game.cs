@@ -36,7 +36,17 @@ namespace WindowsFormsApp3
 
         public int Money { get; set; }//добавляем еще переменную, которая содержит инфу, стоимость на ход у игрока
 
-        public Game(CardSet card1P1, CardSet card2P1, CardSet card3P1, CardSet card4P1, CardSet card1P2, CardSet card2P2, CardSet card3P2, CardSet card4P2, WarCardPlayer p1, WarCardPlayer p2)
+        public Game(CardSet card1P1,
+            CardSet card2P1,
+            CardSet card3P1,
+            CardSet card4P1,
+            CardSet card1P2,
+            CardSet card2P2,
+            CardSet card3P2,
+            CardSet card4P2,
+            WarCardPlayer p1,
+            WarCardPlayer p2,
+            CardSet deck)
         {
             //Set1
             player1Set[0] = card1P1;
@@ -44,16 +54,18 @@ namespace WindowsFormsApp3
             player1Set[2] = card3P1;
             player1Set[3] = card4P1;
             //Set2
-            player2Set[0] = card1P1;
-            player2Set[1] = card2P1;
-            player2Set[2] = card3P1;
-            player2Set[3] = card4P1;
+            player2Set[0] = card1P2;
+            player2Set[1] = card2P2;
+            player2Set[2] = card3P2;
+            player2Set[3] = card4P2;
             //Player1
             Player1 = p1;
             //Player2
             Player2 = p2;
 
-            //deck
+            //deck ////была пропущена!!!!
+            Deck = deck;
+
 
             ActivePlayer = Player1;
             ActivePlayerTable = Player1Set;
