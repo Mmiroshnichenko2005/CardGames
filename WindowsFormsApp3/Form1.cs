@@ -15,25 +15,14 @@ namespace WindowsFormsApp3
         Card activeCard;
         Game game;
         WarCardPlayer mover;
+        CardSet to;
         public Form1()
         {
             InitializeComponent();
         }
 
         
-        private void CardPictureBox_Click(object sender, EventArgs e)
-        {
-            PictureBox pictureBox = (PictureBox)sender;
-            SetActiveCard(pictureBox);
-        }
 
-        private void CardPictureBox_DoubleClick(object sender, EventArgs e)
-        {
-            if (activeCard != null)
-            {
-                game.Move(mover, activeCard);
-            }
-        }
 
         private void ShowMessage(string message)
         {
@@ -42,7 +31,8 @@ namespace WindowsFormsApp3
 
         private void MarkPlayer(Player activePlayer)
         {
-            foreach (var player in game.Players)
+            Player[] Players = { game.Player1, game.Player2 };
+            foreach (var player in Players)
             {
                 if (player == activePlayer)
                     foreach (var card in player.PlayerCards.Cards)
@@ -66,7 +56,8 @@ namespace WindowsFormsApp3
 
         private void SetActiveCard(PictureBox pictureBox)
         {
-            foreach (var player in game.Players)
+            Player[] Players = { game.Player1, game.Player2 };
+            foreach (var player in Players)
             {
                 foreach (var card in player.PlayerCards.Cards)
                 {
@@ -82,21 +73,21 @@ namespace WindowsFormsApp3
                         {
                             activeCard = card;
                             pictureBox.Top += 10;
-                            mover = player;
+                            mover = (WarCardPlayer)player;
                         }
-
-
+                        CheckReady();
                         return;
                     }
                 }
             }
         }
 
-        private void pnlTable_Click(object sender, EventArgs e)
+        private void CheckReady()
         {
-            if (activeCard != null && mover != null)
-                game.Move(mover, activeCard);
+            if (activeCard != null && to != null && mover != null)
+                game.Move(mover, activeCard, to);
         }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -106,14 +97,35 @@ namespace WindowsFormsApp3
             foreach (var card in game.Deck.Cards)
             {
                 PictureBox cardPictureBox = ((GraphicCard)card).Pb;
-                cardPictureBox.DoubleClick += CardPictureBox_DoubleClick;
-                cardPictureBox.Click += CardPictureBox_Click;
+                cardPictureBox.MouseClick += CardPictureBox_MouseClick;
             }
 
             game.ShowMessage = ShowMessage;
             game.MarkActivePlayer = MarkPlayer;
 
             game.Deal();
+        }
+
+        private void CardPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+
+            if (e.Button == MouseButtons.Left)
+                SetActiveCard(pictureBox);
+            else if (e.Button == MouseButtons.Right)
+            {
+                SetCardSet(pictureBox);
+            }
+        }
+
+        private void SetCardSet(PictureBox pictureBox)
+        {
+            List<CardSet> allSets = new List<CardSet>();
+            allSets.AddRange(game.Player1Set);
+            allSets.AddRange(game.Player2Set);
+
+            to = allSets.FirstOrDefault(cs => ((GraphicCard)cs.Cards[0]).Pb == pictureBox);
+            CheckReady();
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -51,9 +51,14 @@ namespace WindowsFormsApp3
             string[] lines = allFile.Split('\n');
             foreach (var line in lines)
             {
-                cards.Add(new Card(line.Trim()));
+                cards.Add(GetCard(line.Trim()));
             }
             return cards;
+        }
+
+        public virtual Card GetCard(string str)
+        {
+            return new Card(str);
         }
 
         public void Mix()
@@ -117,8 +122,8 @@ namespace WindowsFormsApp3
 
             for (int i = 0; i < amount; i++)
             {
-                c.Add(Cards[i]);
-                Cards.RemoveAt(i);
+                c.Add(Cards[0]);
+                Cards.RemoveAt(0);
             }
 
             return c;

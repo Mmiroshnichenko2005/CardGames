@@ -17,16 +17,17 @@ namespace WindowsFormsApp3
             Panel = panel;
         }
 
-        public GraphicCardSet(Panel panel, int count):this(panel)
+        public GraphicCardSet(Panel panel, CardSetType cardSetType, string directory = @"bin\Debug\Cards") 
+            :base(cardSetType, directory)
         {
-            foreach (var name in Enum.GetValues(typeof(string)))
-            {
-                
-            }
-            if (count < Count)
-                Cards.RemoveRange(0, Count - count);
+            Panel = panel;
         }
-       
+
+        public override Card GetCard(string str)
+        {
+            return new GraphicCard(str);
+        }
+
         public override void Show()
         {
             for (int i = 0; i < Cards.Count; i++)

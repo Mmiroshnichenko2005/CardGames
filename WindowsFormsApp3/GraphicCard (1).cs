@@ -40,6 +40,18 @@ namespace WindowsFormsApp3
             Opened = opened;
         }
 
+        public GraphicCard(string description, PictureBox pb, Label lb):base(description)
+        {
+            Pb = pb;
+            lblHp = lb;
+            Pb.SizeMode = PictureBoxSizeMode.Zoom;
+            Pb.Visible = false;
+            fileName = Application.StartupPath + @"\Cards\" + this.ToString() + ".png";
+        }
+
+        public GraphicCard(string description) : this(description, new PictureBox(), new Label())
+        { }
+
         //public GraphicCard(CardLandscape landscape) : this(landscape, new PictureBox()) { }
 
         public override void Show()
