@@ -71,6 +71,7 @@
             this.Card1P2.Name = "Card1P2";
             this.Card1P2.Size = new System.Drawing.Size(144, 208);
             this.Card1P2.TabIndex = 2;
+            this.Card1P2.Click += new System.EventHandler(this.Card4P1_Click);
             this.Card1P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTable_Paint);
             // 
             // pnlDeck
@@ -125,6 +126,7 @@
             this.Card2P2.Name = "Card2P2";
             this.Card2P2.Size = new System.Drawing.Size(144, 208);
             this.Card2P2.TabIndex = 7;
+            this.Card2P2.Click += new System.EventHandler(this.Card4P1_Click);
             // 
             // Card3P2
             // 
@@ -134,6 +136,7 @@
             this.Card3P2.Name = "Card3P2";
             this.Card3P2.Size = new System.Drawing.Size(144, 208);
             this.Card3P2.TabIndex = 3;
+            this.Card3P2.Click += new System.EventHandler(this.Card4P1_Click);
             this.Card3P2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Card4P2
@@ -144,6 +147,7 @@
             this.Card4P2.Name = "Card4P2";
             this.Card4P2.Size = new System.Drawing.Size(144, 208);
             this.Card4P2.TabIndex = 4;
+            this.Card4P2.Click += new System.EventHandler(this.Card4P1_Click);
             // 
             // Card1P1
             // 
@@ -153,6 +157,7 @@
             this.Card1P1.Name = "Card1P1";
             this.Card1P1.Size = new System.Drawing.Size(144, 208);
             this.Card1P1.TabIndex = 3;
+            this.Card1P1.Click += new System.EventHandler(this.Card4P1_Click);
             // 
             // Card2P1
             // 
@@ -162,6 +167,7 @@
             this.Card2P1.Name = "Card2P1";
             this.Card2P1.Size = new System.Drawing.Size(144, 208);
             this.Card2P1.TabIndex = 4;
+            this.Card2P1.Click += new System.EventHandler(this.Card4P1_Click);
             // 
             // Card3P1
             // 
@@ -171,6 +177,7 @@
             this.Card3P1.Name = "Card3P1";
             this.Card3P1.Size = new System.Drawing.Size(144, 208);
             this.Card3P1.TabIndex = 5;
+            this.Card3P1.Click += new System.EventHandler(this.Card4P1_Click);
             // 
             // Card4P1
             // 
@@ -180,6 +187,7 @@
             this.Card4P1.Name = "Card4P1";
             this.Card4P1.Size = new System.Drawing.Size(144, 208);
             this.Card4P1.TabIndex = 6;
+            this.Card4P1.Click += new System.EventHandler(this.Card4P1_Click);
             // 
             // label2
             // 

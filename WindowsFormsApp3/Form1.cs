@@ -156,5 +156,10 @@ namespace WindowsFormsApp3
         {
 
         }
+
+        private void Card4P1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

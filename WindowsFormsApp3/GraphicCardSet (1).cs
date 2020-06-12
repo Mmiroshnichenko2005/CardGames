@@ -30,6 +30,7 @@ namespace WindowsFormsApp3
 
         public override void Show()
         {
+            Panel.Controls.Clear();
             for (int i = 0; i < Cards.Count; i++)
             {
                 GraphicCard graphicCard = (GraphicCard)Cards[i];
@@ -37,14 +38,19 @@ namespace WindowsFormsApp3
                 Label lbl = graphicCard.lblHp;
                 Panel.Controls.Add(pb);
                 Panel.Controls.Add(lbl);
-                lbl.BringToFront();
                 pb.BringToFront();
+                lbl.BringToFront();
+
                 pb.Size = new Size(Panel.Height * pb.Image.Width/ pb.Image.Height, Panel.Height);
-                lbl.Size = new Size((pb.Height * lbl.Width)/lbl.Height, pb.Height);
+                //lbl.Size = new Size((pb.Height * lbl.Width)/lbl.Height, pb.Height); метка перекрывает так карту
+                lbl.AutoSize = true;
                 pb.Location = new Point(i * (Panel.Width - pb.Width) / Cards.Count, 0);
-                lbl.Location = new Point(i * (lbl.Width - pb.Width) / Cards.Count, 0);
+                lbl.Font = new Font(lbl.Font.FontFamily, pb.Height / 10);
+                lbl.Left = pb.Left + 7 * pb.Width / 10;
+                lbl.Top = pb.Top;
+                lbl.ForeColor = Color.White;
+                lbl.BackColor = Color.DarkBlue;
                 pb.TabIndex = i;
-                lbl.TabIndex = i;
                 lbl.TabStop = false;
                 pb.TabStop = false;
                 graphicCard.Show();
