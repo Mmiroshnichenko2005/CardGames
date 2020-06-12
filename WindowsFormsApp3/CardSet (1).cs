@@ -27,7 +27,7 @@ namespace WindowsFormsApp3
         public CardSet() : this(new List<Card>())
         { }
 
-        public CardSet(CardSetType cardSetType, string directory=@"bin\Debug\Cards") : this()
+        public CardSet(CardSetType cardSetType, string directory=@"Cards\") : this()
         {
             if (cardSetType == CardSetType.Empty) return;
 
@@ -47,7 +47,7 @@ namespace WindowsFormsApp3
         private List<Card> GetCardsFromFile(StreamReader streamReader)
         {
             List<Card> cards = new List<Card>();
-            var allFile = streamReader.ReadToEnd();
+            var allFile = streamReader.ReadToEnd().Trim();
             string[] lines = allFile.Split('\n');
             foreach (var line in lines)
             {

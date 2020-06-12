@@ -17,7 +17,7 @@ namespace WindowsFormsApp3
             Panel = panel;
         }
 
-        public GraphicCardSet(Panel panel, CardSetType cardSetType, string directory = @"bin\Debug\Cards") 
+        public GraphicCardSet(Panel panel, CardSetType cardSetType, string directory = @"Cards\") 
             :base(cardSetType, directory)
         {
             Panel = panel;

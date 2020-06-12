@@ -47,35 +47,39 @@
             // 
             // pnlPlayer2
             // 
-            this.pnlPlayer2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPlayer2.BackColor = System.Drawing.Color.LightCyan;
             this.pnlPlayer2.Location = new System.Drawing.Point(1, 1);
+            this.pnlPlayer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlPlayer2.Name = "pnlPlayer2";
-            this.pnlPlayer2.Size = new System.Drawing.Size(1022, 121);
+            this.pnlPlayer2.Size = new System.Drawing.Size(1329, 149);
             this.pnlPlayer2.TabIndex = 0;
             // 
             // pnlPlayer1
             // 
-            this.pnlPlayer1.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPlayer1.Location = new System.Drawing.Point(1, 505);
+            this.pnlPlayer1.BackColor = System.Drawing.Color.LightCyan;
+            this.pnlPlayer1.Location = new System.Drawing.Point(1, 622);
+            this.pnlPlayer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlPlayer1.Name = "pnlPlayer1";
-            this.pnlPlayer1.Size = new System.Drawing.Size(1022, 95);
+            this.pnlPlayer1.Size = new System.Drawing.Size(1329, 117);
             this.pnlPlayer1.TabIndex = 1;
             // 
             // Card1P2
             // 
-            this.Card1P2.BackColor = System.Drawing.Color.Transparent;
-            this.Card1P2.Location = new System.Drawing.Point(223, 142);
+            this.Card1P2.BackColor = System.Drawing.Color.LightCyan;
+            this.Card1P2.Location = new System.Drawing.Point(297, 175);
+            this.Card1P2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card1P2.Name = "Card1P2";
-            this.Card1P2.Size = new System.Drawing.Size(108, 169);
+            this.Card1P2.Size = new System.Drawing.Size(144, 208);
             this.Card1P2.TabIndex = 2;
             this.Card1P2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTable_Paint);
             // 
             // pnlDeck
             // 
             this.pnlDeck.BackColor = System.Drawing.Color.Transparent;
-            this.pnlDeck.Location = new System.Drawing.Point(1049, 127);
+            this.pnlDeck.Location = new System.Drawing.Point(1399, 156);
+            this.pnlDeck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDeck.Name = "pnlDeck";
-            this.pnlDeck.Size = new System.Drawing.Size(17, 149);
+            this.pnlDeck.Size = new System.Drawing.Size(23, 183);
             this.pnlDeck.TabIndex = 3;
             this.pnlDeck.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDeck_Paint);
             // 
@@ -83,9 +87,10 @@
             // 
             this.lblMessage.AutoSize = true;
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.Location = new System.Drawing.Point(1037, 283);
+            this.lblMessage.Location = new System.Drawing.Point(1383, 348);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(35, 13);
+            this.lblMessage.Size = new System.Drawing.Size(46, 17);
             this.lblMessage.TabIndex = 4;
             this.lblMessage.Text = "label1";
             // 
@@ -93,9 +98,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(87, 341);
+            this.button1.Location = new System.Drawing.Point(116, 420);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 5;
             this.button1.Text = "START";
             this.button1.UseVisualStyleBackColor = false;
@@ -104,84 +110,93 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(459, 125);
+            this.label1.Location = new System.Drawing.Point(612, 154);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "P2Table";
             // 
             // Card2P2
             // 
-            this.Card2P2.BackColor = System.Drawing.Color.Transparent;
-            this.Card2P2.Location = new System.Drawing.Point(359, 142);
+            this.Card2P2.BackColor = System.Drawing.Color.LightCyan;
+            this.Card2P2.Location = new System.Drawing.Point(479, 175);
+            this.Card2P2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card2P2.Name = "Card2P2";
-            this.Card2P2.Size = new System.Drawing.Size(108, 169);
+            this.Card2P2.Size = new System.Drawing.Size(144, 208);
             this.Card2P2.TabIndex = 7;
             // 
             // Card3P2
             // 
-            this.Card3P2.BackColor = System.Drawing.Color.Transparent;
-            this.Card3P2.Location = new System.Drawing.Point(503, 142);
+            this.Card3P2.BackColor = System.Drawing.Color.LightCyan;
+            this.Card3P2.Location = new System.Drawing.Point(671, 175);
+            this.Card3P2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card3P2.Name = "Card3P2";
-            this.Card3P2.Size = new System.Drawing.Size(108, 169);
+            this.Card3P2.Size = new System.Drawing.Size(144, 208);
             this.Card3P2.TabIndex = 3;
             this.Card3P2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Card4P2
             // 
-            this.Card4P2.BackColor = System.Drawing.Color.Transparent;
-            this.Card4P2.Location = new System.Drawing.Point(632, 142);
+            this.Card4P2.BackColor = System.Drawing.Color.LightCyan;
+            this.Card4P2.Location = new System.Drawing.Point(843, 175);
+            this.Card4P2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card4P2.Name = "Card4P2";
-            this.Card4P2.Size = new System.Drawing.Size(108, 169);
+            this.Card4P2.Size = new System.Drawing.Size(144, 208);
             this.Card4P2.TabIndex = 4;
             // 
             // Card1P1
             // 
-            this.Card1P1.BackColor = System.Drawing.Color.Transparent;
-            this.Card1P1.Location = new System.Drawing.Point(223, 317);
+            this.Card1P1.BackColor = System.Drawing.Color.LightCyan;
+            this.Card1P1.Location = new System.Drawing.Point(297, 390);
+            this.Card1P1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card1P1.Name = "Card1P1";
-            this.Card1P1.Size = new System.Drawing.Size(108, 169);
+            this.Card1P1.Size = new System.Drawing.Size(144, 208);
             this.Card1P1.TabIndex = 3;
             // 
             // Card2P1
             // 
-            this.Card2P1.BackColor = System.Drawing.Color.Transparent;
-            this.Card2P1.Location = new System.Drawing.Point(359, 317);
+            this.Card2P1.BackColor = System.Drawing.Color.LightCyan;
+            this.Card2P1.Location = new System.Drawing.Point(479, 390);
+            this.Card2P1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card2P1.Name = "Card2P1";
-            this.Card2P1.Size = new System.Drawing.Size(108, 169);
+            this.Card2P1.Size = new System.Drawing.Size(144, 208);
             this.Card2P1.TabIndex = 4;
             // 
             // Card3P1
             // 
-            this.Card3P1.BackColor = System.Drawing.Color.Transparent;
-            this.Card3P1.Location = new System.Drawing.Point(503, 317);
+            this.Card3P1.BackColor = System.Drawing.Color.LightCyan;
+            this.Card3P1.Location = new System.Drawing.Point(671, 390);
+            this.Card3P1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card3P1.Name = "Card3P1";
-            this.Card3P1.Size = new System.Drawing.Size(108, 169);
+            this.Card3P1.Size = new System.Drawing.Size(144, 208);
             this.Card3P1.TabIndex = 5;
             // 
             // Card4P1
             // 
-            this.Card4P1.BackColor = System.Drawing.Color.Transparent;
-            this.Card4P1.Location = new System.Drawing.Point(632, 317);
+            this.Card4P1.BackColor = System.Drawing.Color.LightCyan;
+            this.Card4P1.Location = new System.Drawing.Point(843, 390);
+            this.Card4P1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Card4P1.Name = "Card4P1";
-            this.Card4P1.Size = new System.Drawing.Size(108, 169);
+            this.Card4P1.Size = new System.Drawing.Size(144, 208);
             this.Card4P1.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(458, 489);
+            this.label2.Location = new System.Drawing.Point(611, 602);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "P1Table";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1022, 602);
+            this.ClientSize = new System.Drawing.Size(1363, 741);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Card4P1);
             this.Controls.Add(this.Card3P1);
@@ -197,6 +212,7 @@
             this.Controls.Add(this.Card1P2);
             this.Controls.Add(this.pnlPlayer1);
             this.Controls.Add(this.pnlPlayer2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

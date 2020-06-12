@@ -47,6 +47,7 @@ namespace WindowsFormsApp3
             Pb.SizeMode = PictureBoxSizeMode.Zoom;
             Pb.Visible = false;
             fileName = Application.StartupPath + @"\Cards\" + this.ToString() + ".png";
+            Pb.Image = Image.FromFile(fileName); //***********добавил инициализацию рисунка
         }
 
         public GraphicCard(string description) : this(description, new PictureBox(), new Label())

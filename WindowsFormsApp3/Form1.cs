@@ -101,7 +101,7 @@ namespace WindowsFormsApp3
                 new GraphicCardSet(Card4P2),
                new WarCardPlayer("P1", new GraphicCardSet(pnlPlayer2),25),
                new WarCardPlayer("P2", new GraphicCardSet(pnlPlayer1),25),
-               new GraphicCardSet(new Panel()));
+               new GraphicCardSet(new Panel(), CardSetType.File));
 
             foreach (var card in game.Deck.Cards)
             {

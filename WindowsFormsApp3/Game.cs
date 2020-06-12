@@ -10,14 +10,14 @@ namespace WindowsFormsApp3
     {
         //Кардсетов дожно быть по количеству мест, куда карты можно положить, то есть всего 8. Подумай, как два массива или что-то такое
         //Player1SET
-        public CardSet[] player1Set = new CardSet[4];
+        private CardSet[] player1Set = new CardSet[4];
         public CardSet[] Player1Set
         {
             get { return player1Set; }
         }
 
         //Player2Set
-        public CardSet[] player2Set = new CardSet[4];
+        private CardSet[] player2Set = new CardSet[4];
         public CardSet[] Player2Set
         {
             get { return player2Set; }
@@ -126,6 +126,10 @@ namespace WindowsFormsApp3
             {
                 item.Show();
             }
+
+            //************не было отображения карт игроков
+            Player1.PlayerCards.Show();
+            Player2.PlayerCards.Show();
         }
 
         private WarCardPlayer NextPlayer(WarCardPlayer player)
@@ -167,15 +171,20 @@ namespace WindowsFormsApp3
 
         public void Deal()
         {
+            //********Здесь почему-то была сдача по 6 карт в каждую ячейку стола игрока. Надо было просто игрокам раздать
+
             Deck.Mix();
-            foreach (var item in Player1Set)
-            {
-                item.Add(Deck.Deal(6));
-            }
-            foreach (var item in Player2Set)
-            {
-                item.Add(Deck.Deal(6));
-            }
+            //foreach (var item in Player1Set)
+            //{
+            //    item.Add(Deck.Deal(6));
+            //}
+            //foreach (var item in Player2Set)
+            //{
+            //    item.Add(Deck.Deal(6));
+            //}
+
+            Player1.PlayerCards.Add(Deck.Deal(6));
+            Player2.PlayerCards.Add(Deck.Deal(6));
             Refresh();
         }
         public void GameOver()
